@@ -40,6 +40,7 @@ public class Frame extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
         lblText = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
+        btnSetName = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Frame");
@@ -60,30 +61,41 @@ public class Frame extends javax.swing.JFrame {
         });
 
         lblText.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        lblText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblText.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblText.setText("Welcome, User");
 
         lblDate.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblDate.setText("dd/mm/YYYY");
+
+        btnSetName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnSetName.setText("SET USERNAME");
+        btnSetName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSetNameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnExit))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblText, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblText, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 138, Short.MAX_VALUE)
-                .addComponent(btnClick)
-                .addGap(138, 138, 138))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnClick, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSetName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,7 +106,9 @@ public class Frame extends javax.swing.JFrame {
                     .addComponent(lblDate))
                 .addGap(38, 38, 38)
                 .addComponent(btnClick)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSetName)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                 .addComponent(btnExit)
                 .addContainerGap())
         );
@@ -112,6 +126,14 @@ public class Frame extends javax.swing.JFrame {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnSetNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetNameActionPerformed
+        String username = JOptionPane.showInputDialog(this, "Username");
+        
+        if (username != null || username.length()>0) {
+            lblText.setText("Welcome, " + username);
+        }
+    }//GEN-LAST:event_btnSetNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,6 +173,7 @@ public class Frame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClick;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnSetName;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblText;
